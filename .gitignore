@@ -90,6 +90,8 @@ ENV/
 env.bak/
 venv.bak/
 .vscode
+.idea
+.agenda
 _venv/
 # Spyder project settings
 .spyderproject
