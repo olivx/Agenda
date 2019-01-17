@@ -40,7 +40,7 @@
 <script>
   $(document).ready( function () {
     $('#myTable2').DataTable({
-      "ajax": "/person/json/",
+      "ajax": "/person/json1/",
       "columns": [
         {"data": "nome"},
         {"data": "email"},
@@ -48,6 +48,12 @@
         {"data": "celular"}
       ]
     });
+    $.ajax({
+      url: "/person/json/",
+      success: function(response) {
+        console.log(response);
+      }
+    })
 
 
     $('#myTable2 tfoot th').each( function () {

@@ -1,0 +1,25 @@
+{
+    "ordem_de_compra": [
+        {
+            "pk": 1,
+            "cli_code": "CL-003645",
+            "cli_name": "Guilherme",
+            "address1": "RUA ABC",
+            "state": "MG"
+        },
+        {
+            "pk": 2,
+            "cli_code": "CL-002247",
+            "cli_name": "Adriana",
+            "address1": "AL DO INGA 89 SALA 02",
+            "state": "MG"
+        },
+        {
+            "pk": 3,
+            "cli_code": "CL-002248",
+            "cli_name": "Rodrigo",
+            "address1": "AL DO INGA 800",
+            "state": "SP"
+        }
+    ]
+}

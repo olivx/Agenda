@@ -42,6 +42,15 @@
           <label for="{{form.sexo.id_for_label}}">Sexo:</label>
           <div>{{ form.sexo }}</div>
         </div>
+        <hr>
+        <div class="form-group">
+          <label for="{{form.estado.id_for_label}}">estado:</label>
+          <div>{{ form.estado_fk }}</div>
+        </div>
+        <div class="form-group">
+          <label for="{{form.cidade.id_for_label}}">cidade:</label>
+          <div>{{ form.cidade_fk }}</div>
+        </div>
       {% csrf_token %}
       <a href="{% url 'lista' %}" class="btn btn-secondary">Voltar</a>
       <button type="submit" class="btn btn-primary">Enviar</button>

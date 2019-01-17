@@ -39,5 +39,11 @@ class CadastroForm(forms.ModelForm):
                 'class': 'form-control',
                 'type': 'text',
             }),
+            'estado_fk': forms.Select(attrs={
+                'class': 'custom-select form-control', }
+            ),
+            'cidade_fk': forms.Select(attrs={
+                'class': 'custom-select form-control', }
+            ),
         }
 
