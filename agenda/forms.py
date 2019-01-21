@@ -8,9 +8,20 @@ class CadastroForm(forms.ModelForm):
         super(CadastroForm, self).__init__(*args, **kwargs)
         self.fields['cidade_fk'].queryset = Cidade.objects.none()
 
+        # hack para funcionar com modelform
+        if 'estado_fk' in self.data:
+            try:
+                estado_fk = int(self.data.get('estado_fk'))
+                self.fields['cidade_fk'].queryset = Cidade.objects.filter(cod_estado=estado_fk).order_by('name')
+            except (ValueError, TypeError):
+                pass
+        elif self.instance.pk:
+            self.fields['cidade_fk'].queryset = self.instance.estado_fk.cidade_fk_set.order_by('name')
+
     class Meta:
         model = Cadastro
-        fields = '__all__'
+        fields = ('nome', 'sobrenome', 'email', 'endereco', 'sexo', 'telefone', 'celular',
+                  'cargo', 'estado_fk', 'cidade_fk')
         widgets = {
             'nome': forms.TextInput(attrs={
                 'class': 'form-control',
@@ -50,3 +61,4 @@ class CadastroForm(forms.ModelForm):
                 'class': 'custom-select form-control', }
             ),
         }
+
