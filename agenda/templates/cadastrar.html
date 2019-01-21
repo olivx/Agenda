@@ -58,3 +58,22 @@
   </div>
 </div>
 {% endblock %}
+{% block javascript %}
+<script>
+  $(function(){
+      $('#id_estado_fk').change(function(){
+          const ajax_url = '{% url 'update_select_cidade' %}'
+          let value = $(this).find(":selected").val()
+
+          $.ajax({
+            url: ajax_url,
+            data: {state: value},
+            dataType: 'json',
+            success: function(data){
+              $('#id_cidade_fk').html(data.html_cidade_option)
+            }
+          })
+      });
+  });
+</script>
+{% endblock %}

@@ -1,8 +1,12 @@
 from django import forms
-from .models import Cadastro
+from .models import Cadastro, Cidade
 
 
 class CadastroForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(CadastroForm, self).__init__(*args, **kwargs)
+        self.fields['cidade_fk'].queryset = Cidade.objects.none()
 
     class Meta:
         model = Cadastro
@@ -46,4 +50,3 @@ class CadastroForm(forms.ModelForm):
                 'class': 'custom-select form-control', }
             ),
         }
-

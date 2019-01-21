@@ -1,0 +1,8 @@
+
+{% for city in cities %}
+    {% if forloop.first %}
+    <option value="" selected="">---------</option>
+    {% else %}
+    <option value="{{ city.pk }}">{{ city.nom_cidade }}</option>
+    {% endif %}
+{% endfor %}
