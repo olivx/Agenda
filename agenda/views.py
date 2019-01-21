@@ -50,6 +50,6 @@ def update_select_cidade(request):
     if state:
         cities = Cidade.objects.filter(cod_estado__pk=state)
         data['html_cidade_option'] = render_to_string(
-            'select_cidade_option.html', context={'cities': cities}, request=request)
+            'select_cidade_estado_option.html', context={'cities': cities}, request=request)
 
     return JsonResponse(data)
